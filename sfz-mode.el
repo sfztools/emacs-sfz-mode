@@ -64,7 +64,7 @@
 (defvar sfz-mode-map
   (let ((map (make-sparse-keymap)))
     map)
-  "Keymap used in sfz-mode buffers.")
+  "Keymap used in `sfz-mode' buffers.")
 
 (defvar sfz--all-headers
   '("<region>" "<group>" "<control>" "<global>" "<curve>" "<effect>" "<master>" "<midi>")
@@ -116,7 +116,7 @@ appropriate expressions to handle numbering and wildcards."
     ("=\\([a-zA-Z0-9-_#.& \t/\\(),*]+\\)\\(?: \\|\t\\|$\\)" 1 'sfz-string-face)
     ; the unrecognized opcode
     ("\\<\\([a-zA-Z0-9_]+\\)=" 1 'sfz-unrecognized-opcode-face))
-  "Default highlighting expressions for sfz-mode.")
+  "Default highlighting expressions for `sfz-mode'.")
 
 (defun sfz-indent-line ()
   "Indent current line as SFZ code."
@@ -131,7 +131,7 @@ appropriate expressions to handle numbering and wildcards."
     (modify-syntax-entry ?* ". 23" st)
     (modify-syntax-entry ?\n "> b" st)
     st)
-  "Syntax table for sfz-mode.")
+  "Syntax table for `sfz-mode'.")
 
 (defun sfz-mode ()
   "Major mode for editing SFZ files."
