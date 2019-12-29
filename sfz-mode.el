@@ -1,4 +1,4 @@
-;;; sfz.mode --- Major mode for SFZ files
+;;; sfz.mode --- Major mode for SFZ files -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 Jean Pierre Cimalando
 ;; Version: 0.1
