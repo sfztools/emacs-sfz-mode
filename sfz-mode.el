@@ -79,19 +79,19 @@
   (with-output-to-string
     (princ "\\(?:")
     (seq-doseq (char opcode-S)
-      (princ (cond ((member char '(?N ?X)) "[0-9]+")
+      (princ (cond ((member char '(?N ?X ?Y)) "[0-9]+")
                    ((member char '(?*)) "[a-zA-Z_][a-zA-Z0-9_]*")
                    (t (regexp-quote (char-to-string char))))))
     (princ "\\)")))
 
 (defun sfz--S-opcode-p (opcode)
   "Return whether the OPCODE argument is special: numbered or wildcard."
-  (seq-some (lambda (char) (seq-contains opcode char)) '(?N ?X ?*)))
+  (seq-some (lambda (char) (seq-contains opcode char)) '(?N ?X ?Y ?*)))
 
 (defun sfz--regexp-opt (strings)
   "Create an optimized regex from a list STRINGS of sfz opcodes.
 This works in a similar fashion to REGEXP-OPT.  The opcodes which contain
-characters N, X or * are specially handled: these are substituted with
+characters N, X, Y or * are specially handled: these are substituted with
 appropriate expressions to handle numbering and wildcards."
   (with-output-to-string
     (princ "\\(")
