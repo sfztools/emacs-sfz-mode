@@ -1,13 +1,16 @@
-;;; sfz.mode --- Major mode for SFZ files -*- lexical-binding: t; -*-
+;;; sfz-mode.el --- Major mode for SFZ files -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 Jean Pierre Cimalando
+
+;; Author: Jean Pierre Cimalando <jp-dev@inbox.ru>
+;; Created: 29 Dec 2019
 ;; Version: 0.1
 ;; Keywords: languages
+;; Homepage: https://github.com/sfztools/emacs-sfz-mode
+;; Package-Requires: ((emacs "25.1"))
 
-;;; Commentary:
-;; This is a basic mode for edition of SFZ instruments.
+;; This file is not part of GNU Emacs.
 
-;;; License:
 ;; Permission is hereby granted, free of charge, to any person obtaining
 ;; a copy of this software and associated documentation files (the
 ;; "Software"), to deal in the Software without restriction, including
@@ -27,9 +30,12 @@
 ;; OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ;; WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+;;; Commentary:
+;; This is a basic mode for edition of SFZ instruments.
+
 ;;; Code:
 
-(defgroup sfz-mode nil
+(defgroup sfz nil
   "Editing SFZ code."
   :group 'languages
   :prefix "sfz-")
@@ -37,27 +43,27 @@
 (defface sfz-header-face
   '((t :inherit font-lock-keyword-face))
   "Face for SFZ headers."
-  :group 'sfz-mode)
+  :group 'sfz)
 
 (defface sfz-opcode-face
   '((t :inherit font-lock-builtin-face))
   "Face for SFZ opcodes."
-  :group 'sfz-mode)
+  :group 'sfz)
 
 (defface sfz-unrecognized-opcode-face
   '((t :inherit font-lock-warning-face))
   "Face for SFZ unrecognized opcodes."
-  :group 'sfz-mode)
+  :group 'sfz)
 
 (defface sfz-number-face
   '((t :inherit font-lock-constant-face))
   "Face for SFZ number literals."
-  :group 'sfz-mode)
+  :group 'sfz)
 
 (defface sfz-string-face
   '((t :inherit font-lock-string-face))
   "Face for SFZ string literals."
-  :group 'sfz-mode)
+  :group 'sfz)
 
 (defvar sfz-mode-hook nil)
 
