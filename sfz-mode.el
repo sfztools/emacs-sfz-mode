@@ -141,17 +141,11 @@ appropriate expressions to handle numbering and wildcards."
     st)
   "Syntax table for `sfz-mode'.")
 
-(defun sfz-mode ()
+(define-derived-mode sfz-mode prog-mode "SFZ"
   "Major mode for editing SFZ files."
-  (interactive)
-  (kill-all-local-variables)
-  (set-syntax-table sfz-mode-syntax-table)
-  (use-local-map sfz-mode-map)
+  :group 'sfz
   (set (make-local-variable 'font-lock-defaults) '(sfz-font-lock-keywords))
-  (set (make-local-variable 'indent-line-function) 'sfz-indent-line)
-  (setq major-mode 'sfz-mode)
-  (setq mode-name "SFZ")
-  (run-hooks 'sfz-mode-hook))
+  (set (make-local-variable 'indent-line-function) 'sfz-indent-line))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.sfz\\'" . sfz-mode))
