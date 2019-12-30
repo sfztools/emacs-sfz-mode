@@ -35,6 +35,8 @@
 
 ;;; Code:
 
+(require 'seq)
+
 (defgroup sfz nil
   "Editing SFZ code."
   :group 'languages
@@ -104,7 +106,7 @@ appropriate expressions to handle numbering and wildcards."
     (let* ((nonN-strings (seq-filter (lambda (s) (not (sfz--S-opcode-p s))) strings))
            (N-strings (seq-filter #'sfz--S-opcode-p strings))
            (nonN-regexp (regexp-opt nonN-strings))
-           (N-regexp (mapconcat 'identity (mapcar #'sfz--make-regex-S N-strings) "\\|")))
+           (N-regexp (mapconcat #'identity (mapcar #'sfz--make-regex-S N-strings) "\\|")))
       (princ nonN-regexp)
       (unless (seq-some #'seq-empty-p `(,nonN-regexp ,N-regexp)) (princ "\\|"))
       (princ N-regexp))
