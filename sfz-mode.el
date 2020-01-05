@@ -11,6 +11,8 @@
 
 ;; This file is not part of GNU Emacs.
 
+;; MIT License
+;;
 ;; Permission is hereby granted, free of charge, to any person obtaining
 ;; a copy of this software and associated documentation files (the
 ;; "Software"), to deal in the Software without restriction, including
@@ -113,16 +115,16 @@ appropriate expressions to handle numbering and wildcards."
     (princ "\\)")))
 
 (defvar sfz-font-lock-keywords
-  `(; the headers, eg. "<region>"
+  `(;; the headers, eg. "<region>"
     (,(regexp-opt sfz--all-headers t) . 'sfz-header-face)
-    ; the opcodes, eg. "sample"
+    ;; the opcodes, eg. "sample"
     (,(concat "\\<" (sfz--regexp-opt sfz--all-opcodes) "\\>") . 'sfz-opcode-face)
-    ; the numeric rhs
+    ;; the numeric rhs
     ("=\\([-+]?[0-9]?\.[0-9]+\\>\\)" 1 'sfz-number-face)
     ("=\\([-+]?[0-9]+\\>\\)" 1 'sfz-number-face)
-    ; the string rhs (right whitespace match for several statements on one line)
+    ;; the string rhs (right whitespace match for several statements on one line)
     ("=\\([a-zA-Z0-9-_#.& \t/\\(),*]+\\)\\(?: \\|\t\\|$\\)" 1 'sfz-string-face)
-    ; the unrecognized opcode
+    ;; the unrecognized opcode
     ("\\<\\([a-zA-Z0-9_]+\\)=" 1 'sfz-unrecognized-opcode-face))
   "Default highlighting expressions for `sfz-mode'.")
 
