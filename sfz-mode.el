@@ -147,7 +147,9 @@ appropriate expressions to handle numbering and wildcards."
   "Major mode for editing SFZ files."
   :group 'sfz
   (set (make-local-variable 'font-lock-defaults) '(sfz-font-lock-keywords))
-  (set (make-local-variable 'indent-line-function) 'sfz-indent-line))
+  (set (make-local-variable 'indent-line-function) 'sfz-indent-line)
+  (set (make-local-variable 'comment-start) "// ")
+  (set (make-local-variable 'comment-start-skip) "//+\\s *"))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.sfz\\'" . sfz-mode))
