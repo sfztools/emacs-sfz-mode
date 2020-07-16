@@ -143,6 +143,7 @@ appropriate expressions to handle numbering and wildcards."
     st)
   "Syntax table for `sfz-mode'.")
 
+;;;###autoload
 (define-derived-mode sfz-mode prog-mode "SFZ"
   "Major mode for editing SFZ files."
   :group 'sfz
